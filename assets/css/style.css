@@ -1,0 +1,29 @@
+body {
+	background-image: url(../images/bgimage.png);
+	background-color: #ccc;
+}
+
+.content {
+	width: 700px;
+	padding: 20px 40px;
+	background-color: #fff;
+	border: 5px solid magenta;
+	margin: auto;
+}
+
+h1 {
+	text-align: center;
+}
+
+.btn-group-lg, .btn, .btn-lg {
+	text-align: center;
+	width: 200px;
+	height: 100px;
+	font-size: 40px;
+}
+
+#display {
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
