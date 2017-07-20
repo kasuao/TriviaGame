@@ -45,16 +45,16 @@ var trivia = [
 
 //display questions
 function displayQues(){
-	for (var i = 0; i > trivia.length; i++) {
+	for (var i = 0; i < trivia.length; i++) {
 		console.log("hi")
-		// $("#game").append("<p>" + trivia[i].question + "</p>");
-		// $("#game").append(displayAns());
+		$("#game").append("<p>" + trivia[i].question + "</p>");
+		displayAns(trivia[i]);
 	}
 };
 	//display answers with radio buttons
-function displayAns(){
-		for (var j = 0; j > answers.length; j++) {
-			$("#game").append('<input type="radio" value= answers[j])>' + answer[j]);
+function displayAns(obj){
+		for (var j = 0; j < obj.answers.length; j++) {
+			$("#game").append('<input type="radio" value= answers[j])>' + obj.answer[j]);
 		}
 	}
 //logic: player chooses answers but can't choose more than one per question
@@ -65,10 +65,10 @@ function displayAns(){
 //On-click start game
 $("#startBtn").on("click", function(){
 	//start timer
+	$("#game").html(" ");
 	Timer();
 	countDown();
 	displayQues();
-	displayAns();
 	//when time is up end the game
 	//display timer
 
