@@ -58,6 +58,10 @@ function displayAns(obj){
 		}
 	};
 
+//logic: player chooses answers but can't choose more than one per question
+
+//compare chosen answers to correctAnswer
+	//this wasn't working
 function checkAns(obj){
 	if (obj === obj.correctAnswer) {
 		correct++;
@@ -65,14 +69,14 @@ function checkAns(obj){
 		incorrect++;
 	}
 };
-//logic: player chooses answers but can't choose more than one per question
+
+//show results
 function showResults(){
 	$("#game").html(" ");
 	$("#game").append("<p>" + "correct: " + correct + "</p>");
 	$("#game").append("<p>" + "incorrect: " + incorrect + "</p>");
 }
-	//if answer is correct i++ for correct category
-	//else if answer incorrect i++ for incorrect category
+
 
 //On-click start game
 $("#startBtn").on("click", function(){
