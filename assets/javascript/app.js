@@ -4,20 +4,23 @@ var trivia;
 var answers;
 var intervalId;
 var clockRunning = false;
+var answers = ["Bulls", "Lakers", "Rockets", "Jazz"]; //for testing
+var correctAnswer = 0; //for testing
+var time = 10;
 
 //JSON
 var trivia = [
-	question1 = {
+	{
 		question: "Which NBA team won 6 championships in the 90's?",
 		answers: ["Bulls", "Lakers", "Rockets", "Jazz"],
 		correctAnswer: 0
 	},
-	question2 = {
+	{
 		question: "This NFL team is in the AFC, and has won 6 Superbowls.",
 		answers: ["Cowboys", "Broncos", "Steelers", "Colts"],
 		correctAnswer: 2
 	},
-	question3 = {
+	{
 		question: "Which NCAA football team was the first to win Playoff series National Championship?",
 		answers: ["Buckeyes", "Crimson Tide", "Ducks", "Tigers"],
 		correctAnswer: 1
@@ -25,28 +28,7 @@ var trivia = [
 ];
 
 //functions and objects
-
-
-//On-click start game
-$("#startBtn").on("click", function(){
-	//show timer
-		
-	//start timer
-	Timer();
-	countDown();
-	//when time is up end the game
-	//display timer
-
-	//display questions
-	$("#game").html("<p>" + "question goes here" + "</p>");
-	//display answers with radio buttons
-//logic: player chooses answers but can't choose more than one per question
-
-	//if answer is correct i++ for correct category
-	//else if answer incorrect i++ for incorrect category
-});
 //timer logic
-	var time = 3;
 	function Timer() {
 		intervalId = setInterval(countDown, 1000);
 	};
@@ -60,3 +42,35 @@ $("#startBtn").on("click", function(){
 			showResults();
 		}
 	};
+
+//display questions
+function displayQues(){
+	for (var i = 0; i > trivia.length; i++) {
+		console.log("hi")
+		// $("#game").append("<p>" + trivia[i].question + "</p>");
+		// $("#game").append(displayAns());
+	}
+};
+	//display answers with radio buttons
+function displayAns(){
+		for (var j = 0; j > answers.length; j++) {
+			$("#game").append('<input type="radio" value= answers[j])>' + answer[j]);
+		}
+	}
+//logic: player chooses answers but can't choose more than one per question
+
+	//if answer is correct i++ for correct category
+	//else if answer incorrect i++ for incorrect category
+
+//On-click start game
+$("#startBtn").on("click", function(){
+	//start timer
+	Timer();
+	countDown();
+	displayQues();
+	displayAns();
+	//when time is up end the game
+	//display timer
+
+
+});
