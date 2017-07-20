@@ -3,10 +3,9 @@
 var trivia;
 var answers;
 var intervalId;
-var clockRunning = false;
-var answers = ["Bulls", "Lakers", "Rockets", "Jazz"]; //for testing
-var correctAnswer = 0; //for testing
-var time = 30;
+var time = 15;
+var correct = 0;
+var incorrect = 0;
 
 //JSON
 var trivia = [
@@ -54,11 +53,24 @@ function displayQues(){
 	//display answers with radio buttons
 function displayAns(obj){
 		for (var j = 0; j < obj.answers.length; j++) {
-			$("#game").append('<input type="radio" value= answers[j])>' + obj.answers[j]);
+			$("#game").append('<input type="radio" value= obj.answers[j])>' + obj.answers[j]);
+			checkAns(obj.answers[j]);
 		}
-	}
-//logic: player chooses answers but can't choose more than one per question
+	};
 
+function checkAns(obj){
+	if (obj === obj.correctAnswer) {
+		correct++;
+	}else {
+		incorrect++;
+	}
+};
+//logic: player chooses answers but can't choose more than one per question
+function showResults(){
+	$("#game").html(" ");
+	$("#game").append("<p>" + "correct: " + correct + "</p>");
+	$("#game").append("<p>" + "incorrect: " + incorrect + "</p>");
+}
 	//if answer is correct i++ for correct category
 	//else if answer incorrect i++ for incorrect category
 
