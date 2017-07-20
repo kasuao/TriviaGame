@@ -21,7 +21,12 @@ var trivia = [
 	},
 	{
 		question: "Which NCAA football team was the first to win Playoff series National Championship?",
-		answers: ["Buckeyes", "Crimson Tide", "Ducks", "Tigers"],
+		answers: ["Buckeyes", "Crimson Tide", "Oregon Ducks", "LSU Tigers"],
+		correctAnswer: 1
+	},
+	{
+		question: "Which college basketball program did Chris Webber play for?",
+		answers: ["North Carolina", "Crimson Tide", "Michigan", "LSU Tigers"],
 		correctAnswer: 1
 	},
 ];
@@ -45,8 +50,8 @@ var trivia = [
 //display questions
 function displayQues(){
 	for (var i = 0; i < trivia.length; i++) {
-		console.log("hi")
-		$("#game").append("<p>" + trivia[i].question + "</p>");
+		console.log("hi");
+		$("#game").append("<p><b>" + trivia[i].question + "</b></p>");
 		displayAns(trivia[i]);
 	}
 };
@@ -54,6 +59,7 @@ function displayQues(){
 function displayAns(obj){
 		for (var j = 0; j < obj.answers.length; j++) {
 			$("#game").append('<input type="radio" value= obj.answers[j])>' + obj.answers[j]);
+			chosen = obj.answers[j].checked;
 			checkAns(obj.answers[j]);
 		}
 	};
@@ -62,8 +68,8 @@ function displayAns(obj){
 
 //compare chosen answers to correctAnswer
 	//this wasn't working
-function checkAns(obj){
-	if (obj === obj.correctAnswer) {
+function checkAns(compare){
+	if (chosen === compare.correctAnswer) {
 		correct++;
 	}else {
 		incorrect++;
@@ -86,7 +92,7 @@ $("#startBtn").on("click", function(){
 	countDown();
 	displayQues();
 	//when time is up end the game
-	//display timer
+
 
 
 });
