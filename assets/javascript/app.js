@@ -6,7 +6,7 @@ var intervalId;
 var clockRunning = false;
 var answers = ["Bulls", "Lakers", "Rockets", "Jazz"]; //for testing
 var correctAnswer = 0; //for testing
-var time = 10;
+var time = 30;
 
 //JSON
 var trivia = [
@@ -54,7 +54,7 @@ function displayQues(){
 	//display answers with radio buttons
 function displayAns(obj){
 		for (var j = 0; j < obj.answers.length; j++) {
-			$("#game").append('<input type="radio" value= answers[j])>' + obj.answer[j]);
+			$("#game").append('<input type="radio" value= answers[j])>' + obj.answers[j]);
 		}
 	}
 //logic: player chooses answers but can't choose more than one per question
