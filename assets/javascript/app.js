@@ -120,9 +120,10 @@ var game = {
 		score: function(){
 			// ...the clearInterval function stops the timer...
 			clearInterval(timer);
-			$("#game").html(" ");
+			$("#game").html("");
 			$("#game").append("<p>" + "correct: " + game.correct + "</p>");
 			$("#game").append("<p>" + "incorrect: " + game.incorrect + "</p>");
+			$("#game").append("<p style='text-align: center;'><button class='btn btn-primary btn-lg' id='startBtn'>Start</button></p>");
 		}
 };
 
